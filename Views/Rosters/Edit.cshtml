@@ -1,0 +1,45 @@
+﻿@model ExtracurricularActivitiyLog.Models.Roster
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    #back {
+        color: #0366d6;
+    }
+</style>
+
+
+<h1>Edit</h1>
+
+<h4>Roster</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RosterID" />
+            <input type="hidden" asp-for="ClubID" />
+            <input type="hidden" asp-for="StudentID" />
+            <div class="form-group">
+                <label asp-for="Positions" class="control-label"></label>
+                <input asp-for="Positions" class="form-control" />
+                <span asp-validation-for="Positions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a id="back" style="color: white" class="btn btn-primary" href="javascript:history.back()">Back</a>
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+
+    
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

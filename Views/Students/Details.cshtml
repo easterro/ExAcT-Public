@@ -1,0 +1,68 @@
+﻿@model ExtracurricularActivitiyLog.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    #back {
+        color: #0366d6;
+    }
+</style>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Last Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            First Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            Student ID
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentID)
+        </dd>
+        <dt class="col-sm-2">
+            Club Membership
+        </dt>
+
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Club</th>
+                    <th>Position</th>
+                </tr>
+                @foreach (var item in Model.Rosters)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Clubs.ClubName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Positions)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+
+</div>
+<div>
+    
+    <a href="javascript:history.back()" style="color: white" class="btn btn-lg btn-primary" id="back">Back to Roster</a>
+    
+
+</div>

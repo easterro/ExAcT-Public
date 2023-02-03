@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    a {
+        color: white;
+        font-weight: bold;
+    }
+
+    .video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 79%;
+    }
+
+    #link {
+        color: white;
+    }
+
+    /* Add some content at the bottom of the video/page */
+    .row {
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+        
+        padding: 20px;
+    }
+
+    .jumbotron {
+        height: 50px;
+        vertical-align: middle;
+    }
+
+    #image {
+        /* The image used */
+        background-image: url("https://www.gettingsmart.com/wp-content/uploads/2016/05/Culver-campus.jpg");
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<body id="image">
+    
+    
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Welcome to ExAcT!</h2>
+            <p>
+                <b>ExAcT</b>, or Extracurricular Activity Tracker, is a web application that
+                tracks club membership at Culver Academies.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Club List </h2>
+            <p>You can access the list of clubs on campus here.</p>
+            <p><a asp-controller="Clubs" asp-action="Index">Click here to see the Club List >> </a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Export </h2>
+            <p>You can export the data here.</p>
+            <p><a asp-controller="Rosters" asp-action="Index">Click here to export the data >> </a></p>
+        </div>
+    </div>
+</body>

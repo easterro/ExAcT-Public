@@ -1,0 +1,84 @@
+﻿@model ExtracurricularActivitiyLog.Models.Club
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<p>
+    <a asp-controller="Rosters" asp-action="Create" class="btn btn-lg btn-primary">Create New</a>
+</p>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Club Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClubName)
+        </dd>
+        <dt class="col-sm-2">
+            Advisor
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Advisors)
+        </dd>
+        <dt class="col-sm-2">
+            Membership
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rosters.Count)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Last Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Student ID
+            </th>
+            <th>
+                Position
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var roster in Model.Rosters)
+            {
+        <tr>
+            <td>
+                @roster.Students.LastName
+            </td>
+
+            <td>
+                @roster.Students.FirstName
+            </td>
+            <td>
+                @roster.Students.StudentID
+            </td>
+            <td>
+                @roster.Positions
+            </td>
+            <td>
+                <a asp-action="Details" asp-controller="Students" asp-route-id="@roster.StudentID">Profile</a> |
+                <a asp-action="Edit" asp-controller="Rosters" asp-route-id="@roster.RosterID">Edit</a> |
+                <a asp-action="Delete" asp-controller="Rosters" asp-route-id="@roster.RosterID">Delete</a>
+            </td>
+        </tr>
+            }
+        
+    </tbody>
+    </table>
+        
+<div>
+    <a style="color: white" class="btn btn-lg btn-primary" asp-action="Index">Back to List</a>
+</div>
